@@ -24,21 +24,22 @@ export class Launches extends Component {
     return (
         <Container>
            
-                <h1>Launches</h1>
-                <Green>Success</Green>
-                <Red>Fail</Red>
+               
             
         <Query query={LAUNCHES_QUERY}>
           {({ loading, error, data }) => {
-            if (loading) return <Loader type="TailSpin" margin="auto" color="#00BFFF" height={80} width={80} />
-            if (error) return <h2>Something went wrong!</h2>
+            if (loading) return <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />
+            if (error) return <h2 style={{ margin: 'auto'}}>Something went wrong!</h2>
         
             return (
-              <Fragment>
+              <Stats>
+                 <h1>Launches</h1>
+                <Green></Green> <p style={{ display: 'inline-block' }}>  = Success</p>
+                <Red></Red> <p style={{  }}>  = Fail</p>
                 {data.launches.map(launch => (
                   <LaunchItem key={launch.flight_number} launch={launch} />
                 ))}
-              </Fragment>
+              </Stats>
             );
           }}
         </Query>
@@ -52,7 +53,7 @@ export default Launches
 const Container = styled.div`
   color: #FAFAFA;
   width: 100%;
-  text-align: center;
+  
 `
 const Green = styled.div`
     background: #A6CB12;
@@ -61,6 +62,8 @@ const Green = styled.div`
     height: 30px;
     text-align: center;
     vertical-align: middle;
+    color: black;
+    display: inline-block;
 `
 
 const Red = styled.div`
@@ -69,4 +72,11 @@ const Red = styled.div`
     height: 30px;
     text-align: center;
     vertical-align: middle;
+    margin-bottom: 20px;
+    color: black;
+    
+    
+`
+const Stats = styled.div`
+    margin-left: 250px;
 `

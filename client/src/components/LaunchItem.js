@@ -13,20 +13,22 @@ export default function LaunchItem({
    
     return (
         <Card> 
-           <h1>Mission:</h1> <h1 style={{ color: launch_success ? '#A6CB12' : '#E00543'}}> {mission_name}</h1>
-            <p>Date: {launch_date_local}</p>
+           <h1 style={{ display: 'inline-block' }}> Mission: </h1> <h1 style={{ display: 'inline-block', color: launch_success ? '#A6CB12' : '#E00543'}}> {mission_name}</h1>
+           <p>
+            Date: {launch_date_local}
+          </p>
             <Link to={`/launch/${flight_number}`} >
             <Button>Launch Details</Button>
             </Link>
         </Card>
     )
 
-   
 }
+
 
 const Card = styled.div`
     width: 800px;
-    margin: 20px auto;
+    margin: 20px 0;
     
     padding: 20px;
     background: #171717;
@@ -39,4 +41,5 @@ const Button = styled.button`
     border-radius: 5%;
     padding: 10px;
     pointer: cursor;
+    border: none;
 `

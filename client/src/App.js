@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import logo from './spacex.jpg';
 import Launches from './components/launches';
-import Details from './components/Details'
+import Launch from './components/Launch'
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Route } from 'react-router-dom'; 
@@ -23,7 +23,7 @@ function App() {
         style={{width: 350, margin: 'auto', display: 'block'}}
         />
        <Route exact path="/" component={Launches}/>
-       <Route path="/details/:flight_number" component={Details} />
+       <Route path="/launch/:flight_number" component={Launch} />
       </div>
       </Router>
     </ApolloProvider>
