@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
@@ -33,9 +33,9 @@ export class Launches extends Component {
         
             return (
               <Stats>
-                 <h1>Launches</h1>
-                <Green></Green> <p style={{ display: 'inline-block' }}>  = Success</p>
-                <Red></Red> <p style={{  }}>  = Fail</p>
+                 <h1 style={{ }}>Launches</h1>
+                <Green></Green> <p style={{ display: 'inline-block', marginRight: '20px' }}>  = Success</p>
+                <Red></Red> <p style={{ display: 'inline' }}>  = Fail</p>
                 {data.launches.map(launch => (
                   <LaunchItem key={launch.flight_number} launch={launch} />
                 ))}
@@ -54,16 +54,18 @@ const Container = styled.div`
   color: #FAFAFA;
   width: 100%;
   
+  
 `
 const Green = styled.div`
     background: #A6CB12;
     width: 70px;
-    margin: 10px 0;
+    margin-bottom: 10px;
     height: 30px;
     text-align: center;
     vertical-align: middle;
     color: black;
     display: inline-block;
+    
 `
 
 const Red = styled.div`
@@ -72,11 +74,16 @@ const Red = styled.div`
     height: 30px;
     text-align: center;
     vertical-align: middle;
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
+    display: block;
     color: black;
-    
+    display: inline-block;
+
     
 `
 const Stats = styled.div`
     margin-left: 250px;
+    @media (max-width: 700px) {
+      margin-left: 10px;
+    } 
 `

@@ -31,12 +31,15 @@ const Card = styled.div`
     margin: 20px 0;
     
     padding: 20px;
-    background: #171717;
+    background: #393e46;
     border-radius: 2px%;
+    @media (max-width: 800px) {
+        width: 300px;
+      } 
 `
 
 const Button = styled.button`
-    background: #393e46;
+    background: #222831;
     color: #FAFAFA;
     border-radius: 5%;
     padding: 10px;

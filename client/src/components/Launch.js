@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import logo from '../spacex.jpg'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import { Link } from 'react-router-dom'
@@ -51,7 +50,7 @@ export class Launch extends Component {
                         <Card>
                             <p>Flight number: {flight_number}</p>
                             <p>Launch Year: {launch_year}</p>
-                           <p>Launch Successful: {launch_success ? 'Yes' : 'No'}</p>
+                           <p>Launch Successful: <span style={{ color: launch_success ? 'green' : 'red' }}>{launch_success ? 'Yes' : 'No'}</span></p>
                         </Card>
                         <h3>Rocket Details</h3>
                         <Card>
@@ -80,10 +79,13 @@ const Cards = styled.div`
 
 const Card = styled.div`
     width: 400px;
-    background: #171717;
+    background: #393e46;
     color: white;
     padding: 5px;
     font-size: 20px;
+    @media (max-width: 600px) {
+        width: 300px;
+      } 
 `
 
 const Button = styled.button`
